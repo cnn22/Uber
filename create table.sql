@@ -105,7 +105,7 @@ create table vehicle(
 	);
 
 create table address(
-	AddressName varchar(45),
+	AddressName varchar(45) not null,
 	streetName varchar(255) not null,
 	aptNum varchar(15),
 	city varchar(15) not null,
