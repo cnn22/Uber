@@ -1,0 +1,4 @@
+insert into driver(username)
+select username
+from uberAccount
+where driverOpt = 1;
