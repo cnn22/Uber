@@ -1,4 +1,4 @@
-Insert into userAccount(username,firstname,lastname,secret,email,phoneNum,driverOpt,)
+Insert into userAccount(username,firstname,lastname,secret,email,phoneNum,driverOpt)
 Values("AugMo","August","Morrow","CVI06KWP7MW","fermentum.metus@Proin.co.uk","1-954-400-6593",0),
 ("SigMo","Signe","Morgan","LQR95YTM4SW","tempor@etmalesuadafames.co.uk","1-163-928-1502",0),
 ("CamGr","Camden","Graham","PBH22ZXK7HM","eu.dui@eleifendnec.com","1-478-124-4893",1),
