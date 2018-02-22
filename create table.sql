@@ -3,10 +3,9 @@ Create table uberaccount(
 	firstname varchar(45) not null,
 	lastname varchar(45) not null,
 	secret varchar(64) not null,
-	email varchar(45) not null,
+	email varchar(100) not null,
 	phoneNum varchar(15) not null,
 	driverOpt tinyint not null,
-	riderOpt tinyint not null,
 	Primary Key(username)
 	);
 
