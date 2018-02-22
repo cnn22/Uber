@@ -77,7 +77,7 @@ create table driverLicense(
 	);
     
 create table vehicleType(
-	vehicleTypeID varchar(15) not null,
+	vehicleTypeID int not null,
 	typeDescription varchar(255) not null,
 	engineType varchar(15) not null,
 	Primary Key(vehicleTypeID)
