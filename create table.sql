@@ -16,13 +16,6 @@ create table driver(
 	Foreign Key(username) REFERENCES uberaccount(username)
 	);
 
-create table rider(
-	riderID varchar(45) not null,
-	username varchar(45) not null,
-	Primary Key(riderID),
-	Foreign Key(username) REFERENCES uberaccount(username)
-	);
-
 create table rideType(
 	rideTypeID integer not null,
 	typeDescription varchar(45) not null,
