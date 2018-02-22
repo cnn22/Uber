@@ -25,10 +25,10 @@ create table rideType(
 create table receipt(
 	receiptNumber integer not null,
 	driverID varchar(45) not null,
-	riderID varchar(45) not null,
+	username varchar(45) not null,
 	primary key(receiptNumber),
 	foreign key(driverID) references driver(driverid),
-	foreign key(riderID) references rider(riderID)
+	foreign key(username) references uberaccount(username)
 	);
  
 create table rideRequest(
