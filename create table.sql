@@ -128,5 +128,6 @@ create table bankingAccount(
 	checkingNum varchar(64) not null,
 	lastFourSSN varchar(4) not null,
 	driverID varchar(45) not null,
+	Primary Key(bankingNum),
 	foreign key(driverID) references driver(driverID)
 	);
