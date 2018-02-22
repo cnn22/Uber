@@ -10,7 +10,7 @@ Create table uberaccount(
 	);
 
 create table driver(
-	driverID varchar(45) not null,
+	driverID bigint not null auto_increment,
 	username varchar(45) not null,
 	Primary Key(driverID),
 	Foreign Key(username) REFERENCES uberaccount(username)
@@ -24,7 +24,7 @@ create table rideType(
 
 create table receipt(
 	receiptNumber integer not null,
-	driverID varchar(45) not null,
+	driverID bigint not null,
 	username varchar(45) not null,
 	primary key(receiptNumber),
 	foreign key(driverID) references driver(driverid),
@@ -39,7 +39,7 @@ create table rideRequest(
 	pickupTime date not null,
 	dropoffTime date not null,
 	riderID varchar(45) not null,
-    primary key(requestID),
+    	primary key(requestID),
 	foreign key(ridetypeid) references rideType(rideTypeID)
 	);
     
@@ -71,7 +71,7 @@ create table driverLicense(
 	DOB Date not null,
 	issueDate Date not null,
 	expirationDate Date not null,
-	driverID varchar(45),
+	driverID bigint,
 	Primary Key (licenseNum),
 	Foreign Key (driverID) REFERENCES driver(driverID)
 	);
@@ -90,7 +90,7 @@ create table vehicle(
 	year int not null,
 	model varchar(15) not null,
 	numSeats tinyInt not null,
-	driverID varchar(45) not null,
+	driverID bigint not null,
 	vehicleTypeID varchar(15) not null,
 	PRIMARY KEY(carID),
 	Foreign Key(vehicleTypeID) references vehicleType(vehicleTypeID)
@@ -111,7 +111,7 @@ create table incidentRecord(
 	violationDesc varchar(255) not null,
 	fineAmount float not null,
 	dateTimeIncident date not null,
-	driverID varchar(45) not null,
+	driverID bigint not null,
 	primary key(ticketID),
 	foreign key(driverID) references driver(driverID)
 	);
@@ -120,7 +120,7 @@ create table bankingAccount(
 	bankingNum varchar(64) not null,
 	checkingNum varchar(64) not null,
 	lastFourSSN varchar(4) not null,
-	driverID varchar(45) not null,
+	driverID bigint not null,
 	Primary Key(bankingNum),
 	foreign key(driverID) references driver(driverID)
 	);
