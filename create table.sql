@@ -92,7 +92,7 @@ create table vehicle(
 	model varchar(15) not null,
 	numSeats tinyInt not null,
 	driverID bigint not null,
-	vehicleTypeID varchar(15) not null,
+	vehicleTypeID int not null,
 	PRIMARY KEY(carID),
 	Foreign Key(vehicleTypeID) references vehicleType(vehicleTypeID)
 	);
