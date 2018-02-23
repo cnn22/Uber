@@ -1,4 +1,4 @@
-INSERT INTO `RideType` (`CarID`,`LicensePlate`,`Color`,`Year`,`Model`,`NumSeats`,`driverID`,`vehicleTypeID`) 
+INSERT INTO `Vehicle` (`CarID`,`LicensePlate`,`Color`,`Year`,`Model`,`NumSeats`,`driverID`,`vehicleTypeID`) 
 VALUES ("parturient","vehicula","yellow",2006,"Dodge",7,6500,"POOL"),
 ("neque","pellentesque","violet",2013,"Daimler",3,6499,"SUV"),
 ("ornare,","aliquam","violet",2008,"Buick",2,8415,"SUV"),
