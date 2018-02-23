@@ -24,6 +24,7 @@ create table rideType(
 
 create table receipt(
 	receiptNumber integer not null,
+	receiptDate Date not null,
 	driverID bigint not null,
 	username varchar(45) not null,
 	primary key(receiptNumber),
