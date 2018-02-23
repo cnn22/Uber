@@ -39,7 +39,6 @@ create table rideRequest(
 	longtitute float not null,
 	pickupTime date not null,
 	dropoffTime date not null,
-	riderID varchar(45) not null,
     	primary key(requestID),
 	foreign key(ridetypeid) references rideType(rideTypeID)
 	);
