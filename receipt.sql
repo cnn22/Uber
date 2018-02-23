@@ -1,0 +1,22 @@
+INSERT INTO receipt(receiptNumber,driverID,username) 
+VALUES
+(100,1, "AleBe"),
+(101,2, "AleWy"),
+(102,3, "AllVe"),
+(103,4, "AlyMe"),
+(104,5, "AmeVa"),
+(105,6, "AstGo"),
+(106,7, "AugMo"),
+(107,8, "AusBa"),
+(108,9, "BerMc"),
+(109,10, "BraMe"),
+(110,11, "BraMo"),
+(111,12, "CalTa"),
+(112,13, "CamAn"),
+(113,14, "CamGr"),
+(114,15, "CarHi"),
+(115,16, "CasMo"),
+(116,17, "CasOb"),
+(117,18, "ChaCa"),
+(118,19, "ChaLa"),
+(119,20, "ChaMc");
