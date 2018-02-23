@@ -51,7 +51,8 @@ create table fare(
 	requestID varchar(15) not null,
 	recieptNum integer not null,
 	Foreign Key(requestID) references rideRequest(requestID),
-	Foreign Key(recieptNum) references receipt(ReceiptNumber)
+	Foreign Key(recieptNum) references receipt(ReceiptNumber),
+	CHECK(amount > 0 and basefar > 0 and surge >= 0 and toll >= 0)
 	);
 
 create table userRating(
@@ -59,7 +60,8 @@ create table userRating(
 	avgStarRate Float not null,
 	RatingComment varchar(255),
 	indicator tinyint,
-	Foreign Key(username) REFERENCES uberaccount(username)
+	Foreign Key(username) REFERENCES uberaccount(username),
+	CHECK(indicator = 1 or indicator = 0)
 	);
 
 create table driverLicense(
@@ -93,7 +95,8 @@ create table vehicle(
 	driverID bigint not null,
 	vehicleTypeID int not null,
 	PRIMARY KEY(carID),
-	Foreign Key(vehicleTypeID) references vehicleType(vehicleTypeID)
+	Foreign Key(vehicleTypeID) references vehicleType(vehicleTypeID),
+	CHECK(numSeats >= 2)
 	);
 
 create table address(
@@ -113,7 +116,8 @@ create table incidentRecord(
 	dateTimeIncident date not null,
 	driverID bigint not null,
 	primary key(ticketID),
-	foreign key(driverID) references driver(driverID)
+	foreign key(driverID) references driver(driverID),
+	CHECK(fineAmount > 0)
 	);
 
 create table bankingAccount(
