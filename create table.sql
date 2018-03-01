@@ -121,10 +121,11 @@ create table incidentRecord(
 	);
 
 create table bankingAccount(
-	bankingNum varchar(64) not null,
+	accountID integer not null,
+	routingNum varchar(25) not null,
 	checkingNum varchar(64) not null,
-	lastFourSSN varchar(4) not null,
+	lastFourSSN varchar(64) not null,
 	driverID bigint not null,
-	Primary Key(bankingNum),
+	Primary Key(accountID),
 	foreign key(driverID) references driver(driverID)
 	);
