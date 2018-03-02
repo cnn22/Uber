@@ -27,11 +27,11 @@ CREATE TABLE receipt (
     receiptNumber INTEGER NOT NULL,
     receiptDate DATE NOT NULL,
     driverID BIGINT NOT NULL,
-    username VARCHAR(45) NOT NULL,
+    Riderusername VARCHAR(45) NOT NULL,
     PRIMARY KEY (receiptNumber),
     FOREIGN KEY (driverID)
         REFERENCES driver (driverid),
-    FOREIGN KEY (username)
+    FOREIGN KEY (Riderusername)
         REFERENCES uberaccount (username)
 );
  
