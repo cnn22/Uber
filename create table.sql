@@ -1,131 +1,148 @@
-Create table uberaccount(
-	username varchar(45) not null,
-	firstname varchar(45) not null,
-	lastname varchar(45) not null,
-	secret varchar(64) not null,
-	email varchar(100) not null,
-	phoneNum varchar(15) not null,
-	driverOpt tinyint not null,
-	Primary Key(username)
-	);
+CREATE TABLE uberaccount (
+    username VARCHAR(45) NOT NULL,
+    firstname VARCHAR(45) NOT NULL,
+    lastname VARCHAR(45) NOT NULL,
+    secret VARCHAR(64) NOT NULL,
+    email VARCHAR(100) NOT NULL,
+    phoneNum VARCHAR(15) NOT NULL,
+    driverOpt TINYINT NOT NULL,
+    PRIMARY KEY (username)
+);
 
-create table driver(
-	driverID bigint not null auto_increment,
-	username varchar(45) not null,
-	Primary Key(driverID),
-	Foreign Key(username) REFERENCES uberaccount(username)
-	);
+CREATE TABLE driver (
+    driverID BIGINT NOT NULL AUTO_INCREMENT,
+    username VARCHAR(45) NOT NULL,
+    PRIMARY KEY (driverID),
+    FOREIGN KEY (username)
+        REFERENCES uberaccount (username)
+);
 
-create table rideType(
-	rideTypeID integer not null,
-	typeDescription varchar(45) not null,
-	PRIMARY KEY(rideTypeID)
-	);
+CREATE TABLE rideType (
+    rideTypeID INTEGER NOT NULL,
+    typeDescription VARCHAR(45) NOT NULL,
+    PRIMARY KEY (rideTypeID)
+);
 
-create table receipt(
-	receiptNumber integer not null,
-	receiptDate Date not null,
-	driverID bigint not null,
-	username varchar(45) not null,
-	primary key(receiptNumber),
-	foreign key(driverID) references driver(driverid),
-	foreign key(username) references uberaccount(username)
-	);
+CREATE TABLE receipt (
+    receiptNumber INTEGER NOT NULL,
+    receiptDate DATE NOT NULL,
+    driverID BIGINT NOT NULL,
+    username VARCHAR(45) NOT NULL,
+    PRIMARY KEY (receiptNumber),
+    FOREIGN KEY (driverID)
+        REFERENCES driver (driverid),
+    FOREIGN KEY (username)
+        REFERENCES uberaccount (username)
+);
  
-create table rideRequest(
-	requestID varchar(15) not null,
-	rideTypeID int not null,
-	latitute float not null,
-	longtitute float not null,
-	pickupTime time not null,
-	dropoffTime time not null,
-    	primary key(requestID),
-	foreign key(ridetypeid) references rideType(rideTypeID)
-	);
+CREATE TABLE rideRequest (
+    requestID VARCHAR(15) NOT NULL,
+    rideTypeID INT NOT NULL,
+    latitute FLOAT NOT NULL,
+    longtitute FLOAT NOT NULL,
+    pickupTime TIME NOT NULL,
+    dropoffTime TIME NOT NULL,
+    username VARCHAR(45) NOT NULL,
+    PRIMARY KEY (requestID),
+    FOREIGN KEY (ridetypeid)
+        REFERENCES rideType (rideTypeID),
+    FOREIGN KEY (username)
+        REFERENCES uberaccount (username)
+);
     
-create table fare(
-	amount float not null,
-	baseFare float not null,
-	surge float,
-	toll float,
-	requestID varchar(15) not null,
-	recieptNum integer not null,
-	Foreign Key(requestID) references rideRequest(requestID),
-	Foreign Key(recieptNum) references receipt(ReceiptNumber),
-	CHECK(amount > 0 and basefar > 0 and surge >= 0 and toll >= 0)
-	);
+CREATE TABLE fare (
+    amount FLOAT NOT NULL,
+    baseFare FLOAT NOT NULL,
+    surge FLOAT,
+    toll FLOAT,
+    requestID VARCHAR(15) NOT NULL,
+    recieptNum INTEGER NOT NULL,
+    FOREIGN KEY (requestID)
+        REFERENCES rideRequest (requestID),
+    FOREIGN KEY (recieptNum)
+        REFERENCES receipt (ReceiptNumber),
+    CHECK (amount > 0 AND basefar > 0
+        AND surge >= 0
+        AND toll >= 0)
+);
 
-create table userRating(
-	username varchar(45) Not Null,
-	avgStarRate Float not null,
-	RatingComment varchar(255),
-	indicator tinyint,
-	Foreign Key(username) REFERENCES uberaccount(username),
-	CHECK(indicator = 1 or indicator = 0)
-	);
+CREATE TABLE userRating (
+    username VARCHAR(45) NOT NULL,
+    avgStarRate FLOAT NOT NULL,
+    RatingComment VARCHAR(255),
+    indicator TINYINT,
+    FOREIGN KEY (username)
+        REFERENCES uberaccount (username),
+    CHECK (indicator = 1 OR indicator = 0)
+);
 
-create table driverLicense(
-	licenseNum varchar(15) not null,
-	eyeColor varchar(15) not null,
-	height integer not null,
-	weight integer not null,
-	gender varchar(15) not null,
-	DOB Date not null,
-	issueDate Date not null,
-	expirationDate Date not null,
-	driverID bigint,
-	Primary Key (licenseNum),
-	Foreign Key (driverID) REFERENCES driver(driverID)
-	);
+CREATE TABLE driverLicense (
+    licenseNum VARCHAR(15) NOT NULL,
+    eyeColor VARCHAR(15) NOT NULL,
+    height INTEGER NOT NULL,
+    weight INTEGER NOT NULL,
+    gender VARCHAR(15) NOT NULL,
+    DOB DATE NOT NULL,
+    issueDate DATE NOT NULL,
+    expirationDate DATE NOT NULL,
+    driverID BIGINT,
+    PRIMARY KEY (licenseNum),
+    FOREIGN KEY (driverID)
+        REFERENCES driver (driverID)
+);
     
-create table vehicleType(
-	vehicleTypeID int not null,
-	typeDescription varchar(255) not null,
-	engineType varchar(15) not null,
-	Primary Key(vehicleTypeID)
-	);
+CREATE TABLE vehicleType (
+    vehicleTypeID INT NOT NULL,
+    typeDescription VARCHAR(255) NOT NULL,
+    engineType VARCHAR(15) NOT NULL,
+    PRIMARY KEY (vehicleTypeID)
+);
 
-create table vehicle(
-	carID varchar(15) not null,
-	licensePlate varchar(15) not null,
-	color varchar(15) not null,
-	year int not null,
-	model varchar(15) not null,
-	numSeats tinyInt not null,
-	driverID bigint not null,
-	vehicleTypeID int not null,
-	PRIMARY KEY(carID),
-	Foreign Key(vehicleTypeID) references vehicleType(vehicleTypeID),
-	CHECK(numSeats >= 2)
-	);
+CREATE TABLE vehicle (
+    carID VARCHAR(15) NOT NULL,
+    licensePlate VARCHAR(15) NOT NULL,
+    color VARCHAR(15) NOT NULL,
+    year INT NOT NULL,
+    model VARCHAR(15) NOT NULL,
+    numSeats TINYINT NOT NULL,
+    driverID BIGINT NOT NULL,
+    vehicleTypeID INT NOT NULL,
+    PRIMARY KEY (carID),
+    FOREIGN KEY (vehicleTypeID)
+        REFERENCES vehicleType (vehicleTypeID),
+    CHECK (numSeats >= 2)
+);
 
-create table address(
-	AddressName varchar(45) not null,
-	streetName varchar(255) not null,
-	aptNum varchar(15),
-	city varchar(15) not null,
-	zipcode varchar(5) not null,
-	username varchar(45) not null,
-	foreign key(username) references uberaccount(username)
-	);
+CREATE TABLE address (
+    AddressName VARCHAR(45) NOT NULL,
+    streetName VARCHAR(255) NOT NULL,
+    aptNum VARCHAR(15),
+    city VARCHAR(15) NOT NULL,
+    zipcode VARCHAR(5) NOT NULL,
+    username VARCHAR(45) NOT NULL,
+    FOREIGN KEY (username)
+        REFERENCES uberaccount (username)
+);
 
-create table incidentRecord(
-	ticketID integer not null,
-	violationDesc varchar(255) not null,
-	fineAmount float not null,
-	dateTimeIncident date not null,
-	driverID bigint not null,
-	primary key(ticketID),
-	foreign key(driverID) references driver(driverID),
-	CHECK(fineAmount > 0)
-	);
+CREATE TABLE incidentRecord (
+    ticketID INTEGER NOT NULL,
+    violationDesc VARCHAR(255) NOT NULL,
+    fineAmount FLOAT NOT NULL,
+    dateTimeIncident DATE NOT NULL,
+    driverID BIGINT NOT NULL,
+    PRIMARY KEY (ticketID),
+    FOREIGN KEY (driverID)
+        REFERENCES driver (driverID),
+    CHECK (fineAmount > 0)
+);
 
-create table bankingAccount(
-	accountID integer not null,
-	routingNum varchar(25) not null,
-	checkingNum varchar(64) not null,
-	lastFourSSN varchar(64) not null,
-	driverID bigint not null,
-	Primary Key(accountID),
-	foreign key(driverID) references driver(driverID)
-	);
+CREATE TABLE bankingAccount (
+    accountID INTEGER NOT NULL,
+    routingNum VARCHAR(25) NOT NULL,
+    checkingNum VARCHAR(64) NOT NULL,
+    lastFourSSN VARCHAR(64) NOT NULL,
+    driverID BIGINT NOT NULL,
+    PRIMARY KEY (accountID),
+    FOREIGN KEY (driverID)
+        REFERENCES driver (driverID)
+);
