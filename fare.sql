@@ -1,5 +1,5 @@
-﻿INSERT INTO fare (Amount,baseFare,Surge,Toll,requestID,recieptNum) 
-VALUES (88.41,2.59,1.17,6.89,1,100),
+insert into fare values	
+(88.41,2.59,1.17,6.89,1,100),
 (33.37,3.80,0.50,5.38,2,101),
 (88.70,1.45,2.66,7.54,3,102),
 (63.86,1.72,1.32,3.39,4,103),
