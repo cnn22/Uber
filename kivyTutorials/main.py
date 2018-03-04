@@ -4,6 +4,7 @@ from kivy.uix.screenmanager import ScreenManager, Screen, SlideTransition
 import os
 
 from connected import Connected
+from alterMenu import AlterMenu
 
 class Login(Screen):
     def do_login(self, loginText, passwordText):
@@ -31,6 +32,7 @@ class LoginApp(App):
 
         manager.add_widget(Login(name='login'))
         manager.add_widget(Connected(name='connected'))
+        manager.add_widget(AlterMenu(name='alterMenu'))
         return manager
 
     def get_application_config(self):
