@@ -10,3 +10,4 @@ class Connected(Screen):
     def gotoAlterMenu(self):
         self.transition = SlideTransition(direction="right")
         self.manager.current = 'alterMenu'
+        self.manager.get_screen('alterMenu')
