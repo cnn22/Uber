@@ -1,0 +1,34 @@
+<Connected>:
+    BoxLayout:
+        orientation: 'vertical'
+        spacing:10
+        padding:[10,10,10,10]
+        Label:
+            text: "Welcome, [user]. Choose what to do:"
+
+            font_size: 32
+            font_name:"Arial"
+
+        Button:
+            text: "Sign Out"
+            font_size: 24
+            font_name:"Arial"
+            on_press: root.disconnect()
+
+        Button
+            text:"ALTER"
+            font_size:24
+            font_name:"Arial"
+            on_press: root.gotoAlterMenu()
+        Button
+            text:"CREATE"
+            font_size:24
+            font_name:"Arial"
+        Button
+            text:"CHECKPOINT"
+            font_size:24
+            font_name:"Arial"
+        Button
+            text:"REFERENCES"
+            font_size:24
+            font_name:"Arial"
