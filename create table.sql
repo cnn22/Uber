@@ -2,11 +2,17 @@ CREATE TABLE uberaccount (
     username VARCHAR(45) NOT NULL,
     firstname VARCHAR(45) NOT NULL,
     lastname VARCHAR(45) NOT NULL,
-    secret VARCHAR(64) NOT NULL,
     email VARCHAR(100) NOT NULL,
     phoneNum VARCHAR(15) NOT NULL,
     driverOpt TINYINT NOT NULL,
     PRIMARY KEY (username)
+);
+
+CREATE TABLE secrets(
+    password VARCHAR(64) NOT NULL,
+    hashValue VARCHAR(64) NOT NULL,
+    username VARCHAR(45) NOT NULL,
+    FOREIGN KEY(username) REFERENCES uberaccount(username)
 );
 
 CREATE TABLE driver (
@@ -118,6 +124,8 @@ CREATE TABLE address (
     streetName VARCHAR(255) NOT NULL,
     aptNum VARCHAR(15),
     city VARCHAR(15) NOT NULL,
+    state VARCHAR(15),
+    country VARCHAR(15) NOT NULL,
     zipcode VARCHAR(5) NOT NULL,
     username VARCHAR(45) NOT NULL,
     FOREIGN KEY (username)
