@@ -1,4 +1,4 @@
-Insert into uberAccount(username,firstname,lastname,email,phoneNum,driverOpt)
+Insert into uberaccount(username,firstname,lastname,email,phoneNum,driverOpt)
 Values("AugMo","August","Morrow","fermentum.metus@Proin.co.uk","1-954-400-6593",0),
 ("SigMo","Signe","Morgan","tempor@etmalesuadafames.co.uk","1-163-928-1502",0),
 ("CamGr","Camden","Graham","eu.dui@eleifendnec.com","1-478-124-4893",1),
@@ -71,7 +71,7 @@ Values("AugMo","August","Morrow","fermentum.metus@Proin.co.uk","1-954-400-6593",
 ("TayMi","Taylor","Middleton","ultrices@necleo.com","1-978-235-1214",0),
 ("MicSt","Michelle","Stone","Cum@ullamcorperviverra.ca","1-124-760-4625",0),
 ("LeeHu","Lee","Hurley","vulputate.dui@arcu.net","1-679-792-0120",0),
-("EdaHo","Edan","Howell""enim.Suspendisse@Maecenasornareegestas.co.uk","1-401-571-6405",1),
+("EdaHo","Edan","Howell","enim.Suspendisse@Maecenasornareegestas.co.uk","1-401-571-6405",1),
 ("DebHi","Deborah","Higgins","nisl.Nulla@augue.co.uk","1-806-721-9109",0),
 ("CleBr","Clementine","Bradshaw","interdum@variusorci.edu","1-983-716-2945",0),
 ("LylCo","Lyle","Cooke","parturient@variuset.ca","1-970-163-3606",0),
