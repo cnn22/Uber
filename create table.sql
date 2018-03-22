@@ -126,7 +126,7 @@ CREATE TABLE address (
     city VARCHAR(15) NOT NULL,
     state VARCHAR(15),
     country VARCHAR(15) NOT NULL,
-    zipcode VARCHAR(5) NOT NULL,
+    postalcode VARCHAR(5) NOT NULL,
     username VARCHAR(45) NOT NULL,
     FOREIGN KEY (username)
         REFERENCES uberaccount (username)
